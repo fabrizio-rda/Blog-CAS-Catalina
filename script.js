@@ -21,3 +21,27 @@ document.querySelectorAll('.month-chip').forEach(button => {
     });
   });
 });
+
+const params = new URLSearchParams(window.location.search);
+const experienceTitle = document.getElementById('experience-title');
+const experienceKicker = document.getElementById('experience-kicker');
+const experienceSubtitle = document.getElementById('experience-subtitle');
+
+if (experienceTitle) {
+  const mes = params.get('mes') || 'Mes';
+  const n = params.get('n') || '1';
+  experienceKicker.textContent = `${mes.toUpperCase()} · EXPERIENCIA ${String(n).padStart(2, '0')}`;
+  experienceTitle.innerHTML = `Experiencia <span class="gradient-word">${String(n).padStart(2, '0')}.</span>`;
+  experienceSubtitle.textContent = `Plantilla de ${mes} preparada para completar con la experiencia real de Catalina.`;
+  document.title = `${mes} · Experiencia ${n} · Catalina CAS`;
+}
+
+const projectTitle = document.getElementById('project-title');
+const projectKicker = document.getElementById('project-kicker');
+
+if (projectTitle) {
+  const n = params.get('n') || '1';
+  projectKicker.textContent = `PROYECTO CAS · ${String(n).padStart(2, '0')}`;
+  projectTitle.innerHTML = `Proyecto <span class="gradient-word">${String(n).padStart(2, '0')}.</span>`;
+  document.title = `Proyecto ${n} · Catalina CAS`;
+}
