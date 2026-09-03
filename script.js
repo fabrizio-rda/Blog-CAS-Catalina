@@ -27,13 +27,25 @@ const experienceTitle = document.getElementById('experience-title');
 const experienceKicker = document.getElementById('experience-kicker');
 const experienceSubtitle = document.getElementById('experience-subtitle');
 
+const knownExperiences = {
+  'Marzo-1': 'La Hora del Planeta',
+  'Marzo-2': 'Cuaderno de Esperanza',
+  'Marzo-3': 'Donaciones Patitas de Santa Eulalia'
+};
+
 if (experienceTitle) {
   const mes = params.get('mes') || 'Mes';
   const n = params.get('n') || '1';
+  const key = `${mes}-${n}`;
+  const knownTitle = knownExperiences[key];
   experienceKicker.textContent = `${mes.toUpperCase()} · EXPERIENCIA ${String(n).padStart(2, '0')}`;
-  experienceTitle.innerHTML = `Experiencia <span class="gradient-word">${String(n).padStart(2, '0')}.</span>`;
-  experienceSubtitle.textContent = `Plantilla de ${mes} preparada para completar con la experiencia real de Catalina.`;
-  document.title = `${mes} · Experiencia ${n} · Catalina CAS`;
+  experienceTitle.innerHTML = knownTitle
+    ? `${knownTitle}`
+    : `Experiencia <span class="gradient-word">${String(n).padStart(2, '0')}.</span>`;
+  experienceSubtitle.textContent = knownTitle
+    ? 'Página preparada para incorporar la descripción, evidencias y reflexión de esta experiencia.'
+    : `Plantilla de ${mes} preparada para completar con la experiencia real de Catalina.`;
+  document.title = knownTitle ? `${knownTitle} · Catalina CAS` : `${mes} · Experiencia ${n} · Catalina CAS`;
 }
 
 const projectTitle = document.getElementById('project-title');
