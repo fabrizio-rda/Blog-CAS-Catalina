@@ -1,59 +1,34 @@
-const page = document.body.dataset.page;
+const page=document.body.dataset.page;document.querySelectorAll('[data-nav]').forEach(link=>{if(link.dataset.nav===page)link.classList.add('is-current')});const menuButton=document.querySelector('.menu-button'),nav=document.querySelector('.top-nav');menuButton?.addEventListener('click',()=>{const open=nav?.classList.toggle('open');menuButton.setAttribute('aria-expanded',String(Boolean(open)))});document.querySelectorAll('.month-chip').forEach(button=>{button.addEventListener('click',()=>{const target=button.dataset.month;document.querySelectorAll('.month-chip').forEach(chip=>chip.classList.toggle('active',chip===button));document.querySelectorAll('.experience-month').forEach(section=>{section.hidden=target!=='all'&&section.dataset.month!==target})})});
 
-document.querySelectorAll('[data-nav]').forEach(link => {
-  if (link.dataset.nav === page) link.classList.add('is-current');
-});
+const experiences={
+'Marzo-1':{title:'La Hora del Planeta',subtitle:'Conciencia climática, sensibilización y consumo responsable de energía.',sections:[
+['Asunto global y problema local',`<p>El cambio climático y el consumo de energía son problemas globales. El mundo consume cantidades enormes de electricidad y gran parte todavía proviene de quemar carbón, petróleo y gas natural. Esto libera CO₂ a la atmósfera, atrapa calor y contribuye al aumento de la temperatura del planeta, con consecuencias como el derretimiento de glaciares, sequías más largas y especies en peligro de extinción.</p><p>La Hora del Planeta nació en 2007 en Sídney, Australia, organizada por WWF. Actualmente se celebra en más de 190 países apagando las luces durante 60 minutos como señal de acción climática. En Perú, el problema también es cercano: los glaciares de los Andes retroceden a un ritmo alarmante y el desperdicio de energía en hogares, oficinas y colegios continúa siendo alto.</p>`],
+['Desarrollo y descripción de actividades planificadas',`<p>La Hora del Planeta invita a personas, ciudades y países a apagar sus luces durante 60 minutos como símbolo de conciencia social y compromiso con el planeta. En el colegio, la actividad fue propuesta por el colegio, pero cada estudiante tenía la responsabilidad de difundirla en su salón.</p><p>Mi salón asignado fue Churchill. Preparé una presentación explicando la iniciativa y también reflexiones. Expuse a los estudiantes y los motivé a formar parte. Mi participación personal consistió en investigar a trasfondo la actividad y diseñar los materiales de difusión y presentación. Además, el día de la acción apagué las luces junto a mi mamá a las 8:30 p. m. y estuvimos esa hora sin luz y sin pantallas.</p>`],
+['Documentación y evidencia',`<p>La evidencia presentada incluyó el correo utilizado para planificar el horario, un afiche para Churchill y una presentación de apoyo sobre La Hora del Planeta.</p>`],
+['Reflexión personal',`<p><strong>Investigación:</strong> Antes de comenzar, me pregunté por qué apagar las luces una hora realmente importa si el planeta necesita mucho más que eso. Comprendí que La Hora del Planeta funciona como un gesto simbólico para demostrar que millones de personas están dispuestas a actuar por el clima.</p><p><strong>Preparación:</strong> Entendí que saber que algo importa no es suficiente; también tenemos que comunicarlo para que otros tomen conciencia y actúen. Preparé un afiche, una presentación y coordiné el horario de mi visita al salón.</p><p><strong>Acción:</strong> La presentación en Churchill fue el 23 de marzo. Estuve nerviosa al comunicarme por primera vez con ellos, pero hablar de un tema que sabía me ayudó. La Hora del Planeta fue distinta: a las 8:30 p. m. me senté con mi mamá sin hacer nada y luego conversamos mientras pasaba el tiempo.</p><p><strong>Demostración:</strong> Aprendí que el activismo empieza por cosas pequeñas y en casa, y que para generar un cambio visible es necesario vivir experiencias que permitan reflexionar con honestidad.</p>`],
+['Resultados de aprendizaje logrados',`<ul><li>RA 3: Planifiqué e inicié la experiencia al preparar el pitch, afiche y PPT para organizar la sensibilización.</li><li>RA 4: Mostré compromiso y perseverancia porque llevé a cabo múltiples acciones.</li><li>RA 5: Coordiné con el tutor para el horario de la presentación y entrevista.</li><li>RA 6: La Hora del Planeta es una iniciativa mundial sobre conciencia ambiental.</li><li>RA 7: Reflexioné sobre el consumo de energía y la responsabilidad colectiva e individual frente al cambio climático.</li></ul>`]
+]},
+'Marzo-2':{title:'Cuaderno de Esperanza',subtitle:'Solidaridad y recolección de materiales escolares para estudiantes de Piura.',sections:[
+['Asunto global y problema local',`<p>A nivel mundial, millones de niños en comunidades vulnerables enfrentan una enorme brecha de equidad que frena su desarrollo. La falta de acceso a útiles escolares básicos como cuadernos, lápices y mochilas limita el aprendizaje eficiente y eleva las tasas de deserción escolar.</p><p>En este proyecto desarrollado por Lucía Obrero de 11.º IB, el problema local es la carencia de materiales en Piura. Muchas familias y colegios se encuentran en situación de vulnerabilidad económica y no cuentan con recursos para equipar a sus hijos al inicio del año escolar. “Cuaderno de Esperanza” nació para movilizar solidaridad y recolectar y donar útiles esenciales.</p>`],
+['Desarrollo y descripción de actividades planificadas',`<p>Para la ejecución de “Cuadernos de Esperanza”, tuve que difundir y concientizar la recolección activa de materiales escolares el 27 de abril. Me centré en motivar a los estudiantes del aula Churchill para que se sumen a la causa. Para lograrlo me apoyé de un afiche y una presentación explicando a qué colegios se iban a destinar las donaciones y qué tenían que traer específicamente: bajalenguas y una cinta de masking tape ancha. También les expliqué la realidad que viven los niños de Piura y por qué su apoyo marca una diferencia.</p>`],
+['Documentación y evidencia',`<p>La evidencia mostrada incluye el afiche de “Cuaderno de Esperanza”, el material de difusión utilizado en el salón y registros de la presentación realizada.</p>`],
+['Reflexión personal',`<p><strong>Investigación:</strong> Esta actividad comenzó con la investigación de la realidad que sufren los niños de Piura. Descubrí cómo algo tan simple como la falta de útiles limita sus sueños y desarrollo.</p><p><strong>Preparación:</strong> El desafío fue convencer a otros, no simplemente querer ayudar y apoyar con donaciones. Debía pulir mis habilidades de comunicación para hacerles llegar el mensaje de manera clara y cercana.</p><p><strong>Acción:</strong> Esta etapa llegó cuando me presenté y difundí a mis compañeros. Vencer los nervios para exponer fue una buena experiencia y los estudiantes me escucharon atentamente.</p><p><strong>Demostración:</strong> Se consolidó al ver que reunieron materiales. Esta etapa me permitió evidenciar que planificar y difundir dio frutos y que logramos transformar la empatía en material de soporte para los colegios de Piura.</p>`],
+['Resultados de aprendizaje logrados',`<ul><li>RA 2: Hablar en público para concientizar a mis compañeros desarrolla mis habilidades de comunicación.</li><li>RA 6: Mi actividad nació de abordar un problema mundial y local sobre la desigualdad educativa y la falta de acceso a herramientas básicas de aprendizaje en comunidades vulnerables.</li></ul>`]
+]},
+'Marzo-3':{title:'Patitas de Santa Eulalia',subtitle:'Apoyo al bienestar animal mediante una acción puntual de servicio.',sections:[
+['Asunto global y problema local',`<p>El abandono animal es una problemática que, aunque parece local, forma parte de un fenómeno global que afecta a millones de animales cada año. En Perú las cifras son alarmantes: se estima que existen más de 6 millones de perros en situación de abandono, muchos de ellos víctimas de la irresponsabilidad humana, falta de educación y ausencia de políticas públicas efectivas.</p><p>Esta realidad no es ajena a nuestro entorno. Participar o apoyar a un albergue por más mínimo que sea es importante; visitar a los animales abandonados me generó una mezcla de esperanza y responsabilidad. Globalmente, organizaciones como WSPA trabajan para promover el bienestar animal y cada acción local cuenta y suma a ese esfuerzo.</p><p>Creo firmemente que la empatía es la herramienta más poderosa para cambiar esta realidad. Como ejemplo, Alemania o Países Bajos han logrado prácticamente eliminar el abandono animal mediante leyes estrictas, esterilización masiva y cultura de adopción.</p>`],
+['Desarrollo y descripción de actividades planificadas',`<p>En esta experiencia puntual de servicio, apoyé al albergue “Patitas de Santa Eulalia”, una organización dedicada al rescate y cuidado de perros en situación de abandono. Es una campaña de recaudación de rifas mediante un sorteo. Compré 10 rifas a 20 soles para contribuir, más allá de si ganaba algo o no. Decidí participar porque me genera mucha tristeza saber que fueron abandonados y quería apoyarlos con algo que, por más simple que sea, suma.</p>`],
+['Documentación y evidencia',`<p>Como evidencia se presentó el comprobante de compra de las rifas y el afiche del gran sorteo del albergue.</p>`],
+['Reflexión personal',`<p><strong>Investigación:</strong> Investigué sobre el abandono animal y el Albergue de Patitas de Santa Eulalia. Saber que estos espacios dependen casi exclusivamente de donaciones y voluntarios me generó responsabilidad personal.</p><p><strong>Preparación:</strong> No tuve que planificar mucho: la participación consistía en comprar 10 rifas, pero antes comenté el sorteo con mis familiares para que siguieran comprando. Siempre es importante movilizar a la mayor cantidad de personas posible.</p><p><strong>Acción:</strong> Comprar las rifas fue un gesto pequeño pero consciente. Saber que ese dinero se destinaría directamente al bienestar de los perros del albergue le dio un significado especial.</p><p><strong>Demostración:</strong> Compartir esta experiencia me permitió reflexionar sobre cómo las acciones individuales pueden formar parte de un cambio más grande y reforzó mi compromiso con el bienestar animal.</p>`],
+['Resultados de aprendizaje logrados',`<ul><li>RA 6: Compra de rifas ya que muestra compromiso con problemáticas de importancia global.</li><li>RA 7: Apoyo económico al albergue demuestra cómo pequeñas acciones suman y marcan la diferencia.</li></ul>`]
+]},
+'Abril-1':{title:'Difusión Patitas de Santa Eulalia',subtitle:'Sensibilización sobre el abandono animal y las necesidades del albergue.',sections:[
+['Asunto global y problema local',`<p>A nivel mundial, el abandono de animales de compañía es una crisis de salud pública y bienestar ético en constante aumento. Millones de perros y gatos son desamparados diariamente, sobrepoblando las calles y saturando los refugios de rescate. El núcleo de este problema global radica en la falta de conciencia sobre la tenencia responsable de mascotas y en la escasez crónica de donaciones, subsidios y apoyo voluntario que sufren los albergues.</p><p>Sin recursos para alimento, atención médica y mantenimiento, estas instituciones independientes colapsan, limitando su capacidad para rescatar y salvar más vidas.</p><p>En Santa Eulalia, una zona bastante alejada, la problemática se agudiza debido a la indiferencia hacia estas comunidades y los altos índices de abandono animal. El albergue “Patitas de Santa Eulalia” opera frente a esta triste realidad y enfrenta dificultades por la falta de donaciones de comida y soporte económico para medicinas.</p>`],
+['Desarrollo, evidencia y reflexión',`<p>Las capturas compartidas permiten ver el planteamiento del asunto global y problema local de esta experiencia, pero no muestran todavía las secciones posteriores de desarrollo, evidencia, reflexión y resultados de aprendizaje. Quedan preparadas para completarlas cuando se cuente con esas páginas.</p>`]
+]}}
 
-const menuButton = document.querySelector('.menu-button');
-const nav = document.querySelector('.top-nav');
+const params=new URLSearchParams(window.location.search),experienceTitle=document.getElementById('experience-title'),experienceKicker=document.getElementById('experience-kicker'),experienceSubtitle=document.getElementById('experience-subtitle'),experienceContent=document.getElementById('experience-content');
+const knownNames={'Abril-2':'Caja de Reciclando Ando','Abril-3':'Donaciones RENACER','Abril-4':'Voluntariado RENACER'};
+if(experienceTitle){const mes=params.get('mes')||'Mes',n=params.get('n')||'1',key=`${mes}-${n}`,data=experiences[key],fallback=knownNames[key];experienceKicker.textContent=`${mes.toUpperCase()} · EXPERIENCIA ${String(n).padStart(2,'0')}`;experienceTitle.textContent=data?.title||fallback||`Experiencia ${String(n).padStart(2,'0')}`;experienceSubtitle.textContent=data?.subtitle||(fallback?'La experiencia está identificada, pero su contenido detallado todavía no aparece en las capturas disponibles.':`Plantilla de ${mes} preparada para completar.`);if(data){experienceContent.innerHTML=data.sections.map(([title,html])=>`<article class="template-section"><h2>${title}</h2>${html}</article>`).join('')}document.title=`${data?.title||fallback||`${mes} · Experiencia ${n}`} · Catalina CAS`}
 
-menuButton?.addEventListener('click', () => {
-  const open = nav?.classList.toggle('open');
-  menuButton.setAttribute('aria-expanded', String(Boolean(open)));
-});
-
-document.querySelectorAll('.month-chip').forEach(button => {
-  button.addEventListener('click', () => {
-    const target = button.dataset.month;
-    document.querySelectorAll('.month-chip').forEach(chip => chip.classList.toggle('active', chip === button));
-    document.querySelectorAll('.experience-month').forEach(section => {
-      section.hidden = target !== 'all' && section.dataset.month !== target;
-    });
-  });
-});
-
-const params = new URLSearchParams(window.location.search);
-const experienceTitle = document.getElementById('experience-title');
-const experienceKicker = document.getElementById('experience-kicker');
-const experienceSubtitle = document.getElementById('experience-subtitle');
-
-const knownExperiences = {
-  'Marzo-1': 'La Hora del Planeta',
-  'Marzo-2': 'Cuaderno de Esperanza',
-  'Marzo-3': 'Donaciones Patitas de Santa Eulalia'
-};
-
-if (experienceTitle) {
-  const mes = params.get('mes') || 'Mes';
-  const n = params.get('n') || '1';
-  const key = `${mes}-${n}`;
-  const knownTitle = knownExperiences[key];
-  experienceKicker.textContent = `${mes.toUpperCase()} · EXPERIENCIA ${String(n).padStart(2, '0')}`;
-  experienceTitle.innerHTML = knownTitle
-    ? `${knownTitle}`
-    : `Experiencia <span class="gradient-word">${String(n).padStart(2, '0')}.</span>`;
-  experienceSubtitle.textContent = knownTitle
-    ? 'Página preparada para incorporar la descripción, evidencias y reflexión de esta experiencia.'
-    : `Plantilla de ${mes} preparada para completar con la experiencia real de Catalina.`;
-  document.title = knownTitle ? `${knownTitle} · Catalina CAS` : `${mes} · Experiencia ${n} · Catalina CAS`;
-}
-
-const projectTitle = document.getElementById('project-title');
-const projectKicker = document.getElementById('project-kicker');
-
-if (projectTitle) {
-  const n = params.get('n') || '1';
-  projectKicker.textContent = `PROYECTO CAS · ${String(n).padStart(2, '0')}`;
-  projectTitle.innerHTML = `Proyecto <span class="gradient-word">${String(n).padStart(2, '0')}.</span>`;
-  document.title = `Proyecto ${n} · Catalina CAS`;
-}
+const projectTitle=document.getElementById('project-title'),projectKicker=document.getElementById('project-kicker');if(projectTitle){const n=params.get('n')||'1';projectKicker.textContent=`PROYECTO CAS · ${String(n).padStart(2,'0')}`;projectTitle.innerHTML=`Proyecto <span class="gradient-word">${String(n).padStart(2,'0')}.</span>`;document.title=`Proyecto ${n} · Catalina CAS`}
