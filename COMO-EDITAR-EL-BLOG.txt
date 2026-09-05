@@ -1,0 +1,38 @@
+MODO FÁCIL — BLOG CAS DE CATALINA
+=================================
+
+1. NO CAMBIES partes marcadas con:
+   # NO TOCAR ESTE CODIGO
+
+2. Para escribir información, busca:
+   # ACA TIENES QUE ESCRIBIR
+   y reemplaza SOLO el texto en MAYÚSCULAS.
+
+3. Para poner fotos:
+   - entra a la carpeta /imagenes
+   - sube tu foto
+   - usa nombres simples: marzo1.jpg, perfil.jpg, proyecto1.jpg
+   - en la página correspondiente busca:
+     # ACA PON LA IMAGEN DE _____
+   - cambia solamente el nombre del archivo dentro de src="imagenes/..."
+
+4. COLORES:
+   Abre styles.css y al inicio busca:
+   # ACA ESTAN LOS COLORES
+   No necesitas tocar el resto del CSS.
+
+5. EXPERIENCIAS:
+   Cada experiencia debe tener SU PROPIO archivo HTML.
+   Usa plantilla-experiencia.html como modelo, duplícala y pon un nombre como:
+   marzo1.html
+   marzo2.html
+   abril1.html
+
+6. PROYECTOS:
+   Cada proyecto debe tener SU PROPIO archivo HTML.
+   Usa plantilla-proyecto.html como modelo y pon nombres como:
+   proyecto1.html
+   proyecto2.html
+
+IMPORTANTE:
+Cuando crees una página nueva, también debes cambiar el enlace correspondiente en experiencias.html o proyectos.html para que lleve a ese archivo.
