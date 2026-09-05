@@ -1,24 +1,36 @@
 @import url('https://cdn.jsdelivr.net/gh/fabrizio-rda/Blog-CAS-Catalina@045d918c8da61acbf5afa823f97fc11b3f81d0f3/styles.css');
 
 /* Mantener intactos el layout y la navegación lateral original. */
-
-/* Detalles gráficos discretos: no emojis ni nombres escritos simulando personajes. */
-body::before{content:'♡';position:fixed;right:4.5vw;top:18vh;font:46px Georgia,serif;color:rgba(190,137,143,.15);transform:rotate(12deg);pointer-events:none;z-index:0}
-body::after{content:'✦';position:fixed;right:9vw;bottom:11vh;font-size:24px;color:rgba(71,130,151,.22);pointer-events:none;z-index:0}
+body::before{content:'♡';position:fixed;right:4.5vw;top:18vh;font:46px Georgia,serif;color:rgba(190,137,143,.12);transform:rotate(12deg);pointer-events:none;z-index:0}
+body::after{content:'✦';position:fixed;right:9vw;bottom:11vh;font-size:24px;color:rgba(71,130,151,.18);pointer-events:none;z-index:0}
 main{position:relative}
 
-/* Pequeños trazos de movimiento de fondo, sin objetos falsos. */
-body[data-page="experiencias"] main::after{content:'⌁   ⌁';position:absolute;right:9%;top:155px;font:25px Georgia,serif;letter-spacing:9px;color:rgba(16,35,61,.24);transform:rotate(7deg);pointer-events:none;z-index:0}
+/* ===== EXPERIENCIAS: PERSONAJES REALES ===== */
+.experiences-hero{position:relative}
+.woodstock-flying{position:absolute;width:86px;height:auto;right:17%;top:58%;z-index:2;pointer-events:none;transform:rotate(-9deg);filter:drop-shadow(0 5px 5px rgba(16,35,61,.08))}
+.experiences-hero::after{content:'⌁  ⌁  ⌁';position:absolute;right:7%;top:72%;font:22px Georgia,serif;letter-spacing:7px;color:rgba(16,35,61,.35);transform:rotate(7deg);pointer-events:none}
 
+.experience-month{position:relative}
+.experience-grid{position:relative}
+.snoopy-sleeper{position:absolute;width:190px;height:auto;z-index:5;pointer-events:none;filter:drop-shadow(0 5px 4px rgba(16,35,61,.10))}
+.snoopy-march{left:40%;top:-74px}
+.snoopy-june{right:8%;top:-74px;transform:scaleX(-1)}
+
+/* Espacio suficiente para que Snoopy repose sobre las tarjetas sin tapar títulos. */
+.experience-month[data-month="marzo"] .experience-grid,
+.experience-month[data-month="junio"] .experience-grid{margin-top:70px}
+
+/* Detalles secundarios */
 .experience-card{position:relative}
-.experience-card:nth-child(4n+1)::after{content:'♡';position:absolute;right:17px;bottom:13px;color:rgba(190,137,143,.40);font:27px Georgia,serif}
-.experience-card:nth-child(4n+2)::after{content:'✦';position:absolute;right:17px;bottom:16px;color:rgba(62,127,151,.38);font-size:20px}
-.experience-card:nth-child(4n+3)::after{content:'zzz';position:absolute;right:16px;bottom:15px;color:rgba(255,255,255,.38);font:italic 14px Georgia,serif;letter-spacing:3px}
-.experience-card:nth-child(4n)::after{content:'♪';position:absolute;right:17px;bottom:14px;color:rgba(16,35,61,.32);font-size:21px}
+.experience-card:nth-of-type(4n+1)::after{content:'♡';position:absolute;right:17px;bottom:13px;color:rgba(190,137,143,.40);font:27px Georgia,serif}
+.experience-card:nth-of-type(4n+2)::after{content:'✦';position:absolute;right:17px;bottom:16px;color:rgba(62,127,151,.38);font-size:20px}
+.experience-card:nth-of-type(4n+3)::after{content:'zzz';position:absolute;right:16px;bottom:15px;color:rgba(255,255,255,.38);font:italic 14px Georgia,serif;letter-spacing:3px}
+.experience-card:nth-of-type(4n)::after{content:'♪';position:absolute;right:17px;bottom:14px;color:rgba(16,35,61,.32);font-size:21px}
 
 .template-section{position:relative;overflow:hidden}
 .template-section:nth-child(3n+1)::after{content:'♡';position:absolute;right:20px;top:16px;color:rgba(190,137,143,.32);font:31px Georgia,serif}
 .template-section:nth-child(3n+2)::after{content:'✦';position:absolute;right:20px;top:18px;color:rgba(62,127,151,.32);font-size:21px}
 .template-section:nth-child(3n)::after{content:'Zzz';position:absolute;right:20px;top:17px;color:rgba(16,35,61,.25);font:italic 15px Georgia,serif;letter-spacing:3px}
 
-@media(max-width:720px){body::before{font-size:32px;right:3vw}body[data-page="experiencias"] main::after{display:none}}
+@media(max-width:900px){.woodstock-flying{width:68px;right:8%;top:68%}.snoopy-sleeper{width:150px}.snoopy-march{left:35%;top:-59px}.snoopy-june{right:5%;top:-59px}.experience-month[data-month="marzo"] .experience-grid,.experience-month[data-month="junio"] .experience-grid{margin-top:58px}}
+@media(max-width:720px){body::before{font-size:32px;right:3vw}.woodstock-flying{width:54px;right:5%;top:74%}.experiences-hero::after{display:none}.snoopy-sleeper{width:115px}.snoopy-march{left:auto;right:8%;top:-46px}.snoopy-june{right:8%;top:-46px}.experience-month[data-month="marzo"] .experience-grid,.experience-month[data-month="junio"] .experience-grid{margin-top:46px}}
