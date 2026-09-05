@@ -7,8 +7,8 @@ main{position:relative}
 
 /* ===== EXPERIENCIAS: PERSONAJES REALES ===== */
 .experiences-hero{position:relative}
-.woodstock-flying{position:absolute;width:86px;height:auto;right:17%;top:58%;z-index:2;pointer-events:none;transform:rotate(-9deg);filter:drop-shadow(0 5px 5px rgba(16,35,61,.08))}
-.experiences-hero::after{content:'⌁  ⌁  ⌁';position:absolute;right:7%;top:72%;font:22px Georgia,serif;letter-spacing:7px;color:rgba(16,35,61,.35);transform:rotate(7deg);pointer-events:none}
+.woodstock-flying{position:absolute;width:68px;height:auto;right:22%;top:78%;z-index:2;pointer-events:none;transform:rotate(-9deg);filter:drop-shadow(0 5px 5px rgba(16,35,61,.08))}
+.experiences-hero::after{content:'⌁  ⌁  ⌁';position:absolute;right:10%;top:86%;font:19px Georgia,serif;letter-spacing:7px;color:rgba(16,35,61,.35);transform:rotate(7deg);pointer-events:none}
 
 .experience-month{position:relative}
 .experience-grid{position:relative}
@@ -16,11 +16,9 @@ main{position:relative}
 .snoopy-march{left:40%;top:-74px}
 .snoopy-june{right:8%;top:-74px;transform:scaleX(-1)}
 
-/* Espacio suficiente para que Snoopy repose sobre las tarjetas sin tapar títulos. */
 .experience-month[data-month="marzo"] .experience-grid,
 .experience-month[data-month="junio"] .experience-grid{margin-top:70px}
 
-/* Detalles secundarios */
 .experience-card{position:relative}
 .experience-card:nth-of-type(4n+1)::after{content:'♡';position:absolute;right:17px;bottom:13px;color:rgba(190,137,143,.40);font:27px Georgia,serif}
 .experience-card:nth-of-type(4n+2)::after{content:'✦';position:absolute;right:17px;bottom:16px;color:rgba(62,127,151,.38);font-size:20px}
@@ -32,5 +30,5 @@ main{position:relative}
 .template-section:nth-child(3n+2)::after{content:'✦';position:absolute;right:20px;top:18px;color:rgba(62,127,151,.32);font-size:21px}
 .template-section:nth-child(3n)::after{content:'Zzz';position:absolute;right:20px;top:17px;color:rgba(16,35,61,.25);font:italic 15px Georgia,serif;letter-spacing:3px}
 
-@media(max-width:900px){.woodstock-flying{width:68px;right:8%;top:68%}.snoopy-sleeper{width:150px}.snoopy-march{left:35%;top:-59px}.snoopy-june{right:5%;top:-59px}.experience-month[data-month="marzo"] .experience-grid,.experience-month[data-month="junio"] .experience-grid{margin-top:58px}}
-@media(max-width:720px){body::before{font-size:32px;right:3vw}.woodstock-flying{width:54px;right:5%;top:74%}.experiences-hero::after{display:none}.snoopy-sleeper{width:115px}.snoopy-march{left:auto;right:8%;top:-46px}.snoopy-june{right:8%;top:-46px}.experience-month[data-month="marzo"] .experience-grid,.experience-month[data-month="junio"] .experience-grid{margin-top:46px}}
+@media(max-width:900px){.woodstock-flying{width:56px;right:9%;top:80%}.snoopy-sleeper{width:150px}.snoopy-march{left:35%;top:-59px}.snoopy-june{right:5%;top:-59px}.experience-month[data-month="marzo"] .experience-grid,.experience-month[data-month="junio"] .experience-grid{margin-top:58px}}
+@media(max-width:720px){body::before{font-size:32px;right:3vw}.woodstock-flying{width:46px;right:5%;top:82%}.experiences-hero::after{display:none}.snoopy-sleeper{width:115px}.snoopy-march{left:auto;right:8%;top:-46px}.snoopy-june{right:8%;top:-46px}.experience-month[data-month="marzo"] .experience-grid,.experience-month[data-month="junio"] .experience-grid{margin-top:46px}}
