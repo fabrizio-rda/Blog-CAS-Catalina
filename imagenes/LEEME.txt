@@ -1,0 +1,14 @@
+CARPETA DE IMÁGENES DEL BLOG CAS
+
+Sube aquí las fotos que quieras usar en el blog.
+
+Recomendación para los nombres:
+- perfil.jpg
+- marzo1.jpg
+- marzo2.jpg
+- abril1.jpg
+- proyecto1.jpg
+
+Evita espacios, tildes y caracteres raros en los nombres.
+
+Cuando una página diga "# ACA PON LA IMAGEN DE...", reemplaza el nombre de ejemplo por el nombre exacto de la foto que subiste a esta carpeta.
